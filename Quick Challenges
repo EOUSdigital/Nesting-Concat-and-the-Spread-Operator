@@ -1,0 +1,160 @@
+//! ✅ Mini Practice Prompt:
+
+const team1 = ['Alice', 'Bob'];
+const team2 = ['Cara', 'Dan'];
+
+//  1. Combine them into one flat team array using:
+//  • .concat()
+//  • ...spread
+//  2. Then add "Eve" to the end using spread.
+
+//! Solution
+
+const flatTeam = team1.concat(team2);
+console.log(flatTeam);
+
+const flatTeam2 = [...team1, ...team2];
+console.log(flatTeam2);
+
+
+
+//! 🚀 Quick Challenge
+
+//  We have two arrays of employees:
+
+const devTeam = ['Alice', 'Bob'];
+const designTeam = ['Cara', 'Dan'];
+
+//  1. Combine both teams into one array using ...spread.
+//  2. Add "Eve" as a new hire in the middle.
+//  3. Log the final team.
+
+//! Solution
+
+const extendedTeam = [...devTeam, 'Eve', ...designTeam];
+console.log(extendedTeam);
+
+
+//🚀 Spread + Nesting Practice
+
+//* ⚡ Exercise 1: Combine Arrays with Spread
+
+const morningShift = ['Alice', 'Bob'];
+const eveningShift = ['Cara', 'Dan'];
+
+// ▶️ Task:
+//  Use ...spread to merge both shifts into one array.
+
+//! Solution
+
+const dailyShift = [...morningShift, ...eveningShift];
+console.log(dailyShift);
+
+//* ⚡ Exercise 2: Add a New Member in Between
+
+//  Use spread to add "Eve" between morning and evening shifts.
+
+//! Solution
+
+const newEmployeeShift = [...morningShift, 'Eve', ...eveningShift];
+console.log(newEmployeeShift);
+
+//* ⚡ Exercise 3: Copy an Array Safely
+
+const tools2 = ['Hammer', 'Wrench'];
+
+//  ▶️ Task:
+//  1. Create a safe copy of tools using spread.
+//  2. Then, add 'Screwdriver' to the copy without affecting the original.
+
+//! Solution
+
+const tools2Copy = [...tools2];
+console.log(tools2Copy);
+
+tools2Copy.push('Screwdriver');
+console.log(tools2Copy);
+
+//* ⚡ Exercise 4: Nesting Departments
+
+const departments = [
+    ['HR', 'Finance'],
+    ['IT', 'Support'],
+];
+
+//  ▶️ Task:
+//  Log "Support" by accessing it from the nested array.
+
+console.log(departments[1][1]);
+
+//* ⚡ Exercise 5: Merge Arrays of Numbers
+
+const setA = [1, 2];
+const setB = [3, 4];
+
+//  ▶️ Task:
+//  Use spread to merge into [1, 2, 3, 4] and add 0 at the start.
+
+//! Solution
+
+const mergeSet = [0, ...setA, ...setB];
+console.log(mergeSet);
+
+//* ⚡ Exercise 6: Flatten a Nested Array
+
+const numbers = [1, [2, 3], 4];
+
+//  ▶️ Task:
+//  Use spread to flatten the array.
+
+//! Solution
+
+console.log(numbers.flat());
+
+//* ⚡ Exercise 7: Copy & Extend an Object
+
+const user3 = { name: 'Alex', role: 'user' };
+
+//  ▶️ Task:
+//  Use ...spread to create a copy and update the role to 'admin'.
+
+//! Solution
+
+const newUser3 = { ...user3, role: 'admin' };
+console.log(newUser3);
+
+//* ⚡ Exercise 8: Merge Two Settings Objects
+
+const defaultSettings2 = { theme: 'light', notification: true };
+const userSettings2 = { theme: 'dark' };
+
+//  ▶️ Task:
+//  Merge them so that userSettings overrides theme.
+
+//! Solution
+
+const newSettings = { ...defaultSettings2, ...userSettings2  };
+console.log(newSettings);
+
+//* ⚡ Exercise 9: Insert Item in the Middle
+
+const queue = ['Task1', 'Task3'];
+
+//  ▶️ Task:
+//  Use spread to insert 'Task2' between them.
+
+//! Solution
+
+const updatedQueue = [ ...queue.slice(0,1), 'Task2', ...queue.slice(1) ];
+console.log(updatedQueue);
+
+//* ⚡ Exercise 10: Deep Nesting Access
+
+const schedule = [
+    ['Monday', ['Meeting', 'Report']],
+    ['Tuesday', ['Call', 'Review']],
+];
+
+//! Solution
+
+console.log(schedule[1][1][1]);
