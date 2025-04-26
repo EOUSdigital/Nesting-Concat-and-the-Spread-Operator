@@ -1,0 +1,289 @@
+//  👥 Dynamic Team Builder Project
+
+//* 🎯 Scenario:
+//  We are building a tool for HR to manage company teams.
+
+//  Features:
+//  1. Start with two separate teams (developers & designers).
+//  2. Dynamically:
+//      • Merge both teams.
+//      • Add a new hire into a specific position.
+//      • Create a safe copy of the team before making changes.
+//  3. Log:
+//      • The full team.
+//      • The updated team after hiring.
+//      • Ensure original teams remain unchanged.
+
+//* 📝 Dataset:
+
+const devTeam = ['Alice', 'Bob'];
+const designTeam = ['Cara', 'Dan'];
+
+//* 💡 Tasks:
+//  1. Use ...spread to merge devTeam and designTeam.
+//  2. Insert 'Eve' (new hire) between Bob and Cara.
+//  3. Make sure the original devTeam and designTeam stay intact.
+//  4. Log:
+//      • The merged team.
+//      • The updated team after adding Eve.
+
+//! Solution
+
+//* Step 1.
+
+const mergedTeam = [...devTeam, ...designTeam];
+
+//* Step 2.
+
+const updatedTeam = [...devTeam, 'Eve', ...designTeam];
+
+//* Step 3.
+
+const teamCopy = [...mergedTeam];
+
+//* Step 4.
+
+console.log(teamCopy);
+console.log(updatedTeam);
+
+
+//TODO  ⚙️ Project 2: Config Manager
+
+//* 🎯 Scenario:
+//  We are building a configuration system for a web app.
+//  Apps often have:
+//      Default settings (what the app provides).
+//      User settings (custom preferences that override defaults).
+//  We must follow the next steps for a solution:
+//      1. Merge both settings safely.
+//      2. Ensure user preferences override defaults.
+//      3. Add a dynamic environment flag (mode: 'dark' or 'light').
+//      4. Prevent mutation of the original configs.
+
+//* 📝 Dataset:
+
+const defaultConfig = {
+    theme: 'light',
+    notifications: true,
+    language: 'en',
+};
+
+const userConfig = {
+    theme: 'dark',
+    language: 'fr',
+};
+
+//* 💡 Tasks:
+//  1. Use ...spread to merge defaultConfig and userConfig.
+//  2. Ensure userConfig overrides the theme and language.
+//  3. Dynamically add:
+//      const envMode = 'production';                   // Result: ➔ Resulting config should include { mode: 'production' }.
+//  4. Log:
+//      • The final config object.
+//      • Ensure that neither defaultConfig nor userConfig was modified.
+
+//! Solution
+
+//* Step 1.
+//* Step 2.
+
+const mergedConfig = { ...defaultConfig, ...userConfig };
+
+//* Step 3.
+
+const envMode = 'production';
+const finalConfig = { ...mergedConfig, mode: envMode };
+
+//* Step 4.
+
+console.log(finalConfig);
+console.log(defaultConfig);
+console.log(userConfig);
+
+
+//  🚀 Smart Dashboard System
+
+//* We will design a project that combines:
+//  ✅ Arrays & Objects
+//  ✅ Chaining (.filter(), .map(), .find(), .some())
+//  ✅ Spread Operator & Nesting
+//  ✅ Dynamic data manipulation
+//  ✅ Clean, modular code structure
+
+//* 🎯 Project Concept: Smart Dashboard System
+//  We are building a dynamic dashboard for a company that manages:
+//      1. Teams & Employees
+//      2. System Configurations
+//      3. Task Management
+//  This project will simulate:
+//      • Merging data
+//      • Filtering active users
+//      • Updating configurations
+//      • Handling nested structures
+//      • Displaying dynamic summaries
+
+//* 📝 Core Features:
+//? 1️⃣ Team Management
+//      • Merge multiple departments.
+//      • Add new hires dynamically.
+//      • Clone team structures before updates.
+
+//? 2️⃣ Config Center
+//      Merge default system settings with custom overrides.
+//      Dynamically adjust environments (production, development).
+//      Ensure immutability.
+
+//? 3️⃣ Task Overview
+//      Filter pending tasks.
+//      Highlight urgent ones.
+//      Generate clean reports using chaining.
+
+//* 🧠 Technologies & Techniques:
+//      ...spread for merging & copying.
+//      Chaining methods for summaries.
+//      Nested arrays/objects handling.
+//      Safe data manipulation (no mutations).
+//      Dynamic, readable console outputs.
+
+//? 🚀 Scenario:
+//      • Merge Dev and Design teams.
+//      • Insert a new hire between departments.
+//      • Apply user-specific settings over system defaults.
+//      • Filter tasks assigned to active team members.
+//      • Display:
+//          • Team list
+//          • Final config
+//          • Task report
+
+//* 📋 Step-by-Step Plan
+
+//? 1️⃣ Setup: Define Data Structures
+
+//  A. Teams:
+
+const devTeam2 = ['Alice', 'Bob'];
+const designTeam2 = ['Cara', 'Dan'];
+const newHire = 'Eve';
+
+//  B. Configurations:
+
+const defaultConfig2 = { theme: 'light', notifications: true, language: 'en' };
+const userConfig2 = { theme: 'dark', language: 'fr' };
+const envMode2 = 'production';
+
+//  C. Tasks:
+
+const tasks = [
+    { title: 'Deploy app', assignedTo: 'Alice', done: false, priority: 'high' },
+    { title: 'Design logo', assignedTo: 'Cara', done: true, priority: 'low' },
+    { title: 'Fix bugs', assignedTo: 'Bob', done: false, priority: 'medium' },
+    { title: 'Client meeting', assignedTo: 'Eve', done: false, priority: 'high' },
+];
+
+//? 2️⃣ Team Management Logic
+//  • ✅ Merge devTeam and designTeam using ...spread.
+//  • ✅ Insert Eve between Dev and Design teams.
+//  • ✅ Clone the merged team for safe updates.
+//  • Log the final team list.
+
+//? 3️⃣ Config Manager Logic
+//  • ✅ Merge defaultConfig and userConfig using ...spread.
+//  • ✅ Add mode: envMode dynamically.
+//  • Ensure neither original config is mutated.
+//  • Log the final configuration object.
+
+//? 4️⃣ Task Overview Logic
+//  • ✅ Filter tasks where done === false.
+//  • ✅ Use .map() to format as:
+//      "🔴 [High] Deploy app - Assigned to Alice"
+//  • ✅ Use .find() to highlight the first high priority pending task.
+//  • Log:
+//      • Pending tasks list.
+//      • Urgent task alert.
+//      • If no pending tasks ➔ log "✅ All tasks completed!".
+
+//? 5️⃣ Final Dashboard Output
+//  • Log:
+//  1. Team Summary
+//  2. Configuration Summary
+//  3. Task Report
+
+
+//! Solution Team Management Logic
+
+//* Step 1.
+
+const mergedTeam2 = [...devTeam2, ...designTeam2];
+
+//* Step 2.
+
+const updatedTeam2 = [...devTeam2, 'Eve', ...designTeam2];
+
+//* Step 3.
+
+const cloneUpdatedTeam2 = [...updatedTeam2];
+
+//* step 4.
+
+console.log(cloneUpdatedTeam2);
+
+//! Solution Config Manager Logic
+
+//* Step 1.
+
+const mergedConfig2 = { ...defaultConfig2, ...userConfig2 };
+
+//* Step 2.
+
+const finalConfig2 = { ...mergedConfig2, mode: envMode2 };
+
+//* Step 3.
+
+console.log(defaultConfig2);
+console.log(userConfig2);
+console.log(finalConfig2);
+
+//! Solution Task Overview Logic
+
+//* Step 1.
+
+const tasksDone = tasks.filter(task => task.done === false);
+
+//* Step 2.
+
+const formatTasks = tasksDone.map(task => `🔴 ${task.priority.toUpperCase()} ${task.title} - Assigned to ${task.assignedTo}`)
+
+//* Step 3.
+
+const highPriorityPendingTask = tasks.find(task => !task.done && task.priority === 'high');
+
+//* Step 4.
+
+if (highPriorityPendingTask) {
+    console.log(`🚨 Urgent Task: ${highPriorityPendingTask.title}`);
+} else {
+    console.log("✅ All tasks completed!");
+};
+
+//! Solution Final Dashboard Output
+
+//* Step 1.
+
+console.log(`👥 Team: ${updatedTeam2}`);
+
+//* Step 2.
+
+console.log(`⚙️ Config: ${JSON.stringify(finalConfig2)}`);
+
+//* Step 3.
+
+console.log('📋 Pending Tasks:');
+console.log(formatTasks);
+
+//* step 4.
+
+if (highPriorityPendingTask) {
+    console.log(`🚨 Urgent Task: ${highPriorityPendingTask.title}`);
+} else {
+    console.log("✅ All tasks completed!");
+};
